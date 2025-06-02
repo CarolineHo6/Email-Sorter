@@ -1,16 +1,18 @@
 import imaplib
 import email
 from email.header import decode_header
-import openai
+from openai import OpenAI
 import os
 import smtplib
 from email.mime.text import MIMEText
+
+client = OpenAI()
 
 # Config
 EMAIL_USER = os.getenv("GMAIL_EMAIL")
 EMAIL_PASS = os.getenv("GMAIL_APP_PASSWORD")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-openai.api_key = OPENAI_API_KEY
+client.api_key = OPENAI_API_KEY
 deleted_ids = []
 
 # connection to gmail
